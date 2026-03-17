@@ -14,6 +14,10 @@ import { type OrchestratorRef } from './mcp/tools.js';
 import { JOB_MARKETPLACE_ABI } from './abi.js';
 import { formatEther } from 'viem';
 
+process.on("unhandledRejection", (err) => {
+  console.error("Unhandled rejection (non-fatal):", err);
+});
+
 async function main() {
   console.log(`Starting TaskMaster agent on ${NETWORK}...`);
 

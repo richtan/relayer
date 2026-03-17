@@ -25,6 +25,8 @@ export async function createAgentWallet(): Promise<AgentWallet> {
     apiKeySecret: process.env.CDP_API_KEY_SECRET!,
     walletSecret: process.env.CDP_WALLET_SECRET!,
     networkId: config.chain.id === 8453 ? "base-mainnet" : "base-sepolia",
+    address: process.env.CDP_SMART_WALLET_ADDRESS as `0x${string}` | undefined,
+    owner: process.env.CDP_OWNER_ACCOUNT_ADDRESS as `0x${string}` | undefined,
   });
   return {
     address: walletProvider.getAddress() as Address,
